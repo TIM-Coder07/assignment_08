@@ -4,16 +4,17 @@ import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import {
   Button,
-  Description,
   Form,
-  Input,
   Label,
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 const LogInPage = () => {
+  const [serverError, setServerError] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -24,27 +25,25 @@ const LogInPage = () => {
   const loginHandler = async (data) => {
     const { email, password } = data;
 
+    setServerError(""); // reset previous error
+
     const { data: res, error } = await authClient.signIn.email({
       email,
       password,
       callbackURL: "/",
     });
 
-    console.log("Response:", res);
-    console.log("Error:", error);
-
     if (error) {
-      alert(error.message || "Log In failed!");
+      setServerError(error.message || "Log In failed!");
       return;
     }
 
-    alert("Log In successful!");
     reset();
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#edd0b9]">
-      {/* Login Form */}
+      
       <Form
         onSubmit={handleSubmit(loginHandler)}
         className="flex mt-8 w-96 flex-col gap-4 bg-[#63483a] p-6 rounded-xl text-[#edd0b9]"
@@ -66,7 +65,9 @@ const LogInPage = () => {
             })}
           />
 
-          <p className="text-red-400 text-xs mt-1">{errors.email?.message}</p>
+          <p className="text-red-400 text-xs mt-1">
+            {errors.email?.message}
+          </p>
         </TextField>
 
         {/* Password */}
@@ -86,7 +87,8 @@ const LogInPage = () => {
               validate: {
                 hasUpper: (v) =>
                   /[A-Z]/.test(v) || "Must include uppercase letter",
-                hasNumber: (v) => /[0-9]/.test(v) || "Must include number",
+                hasNumber: (v) =>
+                  /[0-9]/.test(v) || "Must include number",
               },
             })}
           />
@@ -95,6 +97,13 @@ const LogInPage = () => {
             {errors.password?.message}
           </p>
         </TextField>
+
+        {/* 🔴 Server Error */}
+        {serverError && (
+          <p className="text-red-500 text-sm text-center">
+            {serverError}
+          </p>
+        )}
 
         {/* Submit */}
         <Button type="submit" className="bg-[#edd0b9] text-[#63483a] w-full">
