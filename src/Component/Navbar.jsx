@@ -28,7 +28,6 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-[#63483a] text-[#edd0b9] shadow-lg border-b border-white/10">
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
-
         {/* Logo */}
         <Link
           href="/"
@@ -54,18 +53,19 @@ const Navbar = () => {
 
         {/* Right Section */}
         <div className="hidden lg:flex items-center gap-4">
-
           {user ? (
             <div className="flex items-center gap-3">
-
               {/* Avatar + Name */}
-              <Link href="/my-profile" className="flex items-center gap-2 group">
+              <Link
+                href="/profile"
+                className="flex items-center gap-2 group"
+              >
                 <Image
-                  src={user?.imageURL || "/default-avatar.png"}
+                  src={user?.image || "/default-avatar.png"}
                   alt="User"
                   width={38}
                   height={38}
-                  className="rounded-full border border-white/20 group-hover:scale-105 transition object-cover"
+                  className="rounded-full border border-white/20 object-cover"
                 />
 
                 <span className="text-sm font-medium group-hover:text-white transition">
@@ -92,10 +92,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Button */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="lg:hidden text-2xl"
-        >
+        <button onClick={() => setOpen(!open)} className="cursor-pointer lg:hidden text-2xl">
           {open ? "✕" : "☰"}
         </button>
       </div>
@@ -107,7 +104,6 @@ const Navbar = () => {
         }`}
       >
         <div className="px-4 space-y-3 text-sm">
-
           {/* Links */}
           {menuLinks.map((item) => (
             <Link
@@ -123,18 +119,17 @@ const Navbar = () => {
           {/* User Section */}
           {user ? (
             <div className="pt-3 space-y-3">
-
               <Link
-                href="/my-profile"
+                href="/profile"
                 onClick={closeMenu}
                 className="flex items-center gap-3"
               >
                 <Image
-                  src={user?.imageURL || "/default-avatar.png"}
+                  src={user?.image || "/default-avatar.png"}
                   alt="User"
-                  width={42}
-                  height={42}
-                  className="rounded-full border object-cover"
+                  width={38}
+                  height={38}
+                  className="rounded-full border border-white/20 object-cover"
                 />
                 <div>
                   <p className="font-medium">{user?.name}</p>

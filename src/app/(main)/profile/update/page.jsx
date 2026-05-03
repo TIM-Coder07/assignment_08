@@ -15,7 +15,7 @@ const UpdateProfilePage = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  // 🔄 Update Handler
+  // Update Handler
   const handleUpdate = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -39,11 +39,12 @@ const UpdateProfilePage = () => {
         router.push("/profile");
       }, 1000);
     } catch (err) {
-      console.log(err);
       setMessage("Something went wrong!");
     }
 
     setLoading(false);
+    setName('');
+    setImage('')
   };
 
   //  No user fallback

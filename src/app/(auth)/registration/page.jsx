@@ -12,7 +12,6 @@ const RegistrationPage = () => {
   const router = useRouter();
   const [apiError, setApiError] = useState(null);
   const [successMsg, setSuccessMsg] = useState(null);
-
   const {
     register,
     handleSubmit,
@@ -52,14 +51,9 @@ const RegistrationPage = () => {
 
   // GOOGLE SIGN UP
   const handleGoogleSignUp = async () => {
-    setApiError(null);
-
-    const data = await authClient.signIn.social({
+    await authClient.signIn.social({
       provider: "google",
-      callbackURL: "/login",
     });
-    console.log(data);
-    
   };
 
   return (
