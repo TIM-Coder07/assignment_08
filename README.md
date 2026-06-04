@@ -1,50 +1,66 @@
-# 🧱 Tiles Gallery
+# 🧩 Tiles Showcase Web App
 
-## 🌐 Live URL  
-https://assignment-08-tiles-gallery-two.vercel.app/
-
-## 🌐 Repo URL  
-https://github.com/TIM-Coder07/assignment_08
----
-
-## 📌 Project Purpose  
-Tiles Gallery is a modern web application designed to showcase different types of tiles in a clean and responsive layout. Users can browse tile collections, view detailed information, and experience a smooth UI.
-
-This project also demonstrates mock backend integration using JSON Server.
+A modern **tiles showcase platform** designed to present tile collections in a clean, interactive, and visually appealing way for customers. Built with Next.js and modern React ecosystem tools, this project focuses on performance, animation, and smooth UI/UX.
 
 ---
 
-## ✨ Key Features  
-
-- 🖼️ Responsive tile gallery layout  
-- 🔍 Tile details view  
-- ⚡ Fast and optimized performance  
-- 🎨 Clean UI design  
-- 📱 Fully responsive  
-- 🔐 Authentication (Login/Register)  
-- 🌙 Theme support (DaisyUI)  
-- 🗄️ JSON Server as mock backend  
+## 🚀 Live Demo
+https://your-live-link.com
 
 ---
 
-## 🛠️ Technologies & Packages  
+## 🛠️ Tech Stack
 
-### ⚙️ Core  
-- Next.js  
-- React.js  
-- Tailwind CSS  
-
-### 📦 Packages  
-- better-auth  
-- react-icons  
-- axios / fetch  
-- daisyUI  
-- json-server  
+- ⚛️ React 19
+- 🚀 Next.js 16
+- 🎨 HeroUI (UI Components)
+- 🎬 Framer Motion / Motion
+- 🎨 Animate.css
+- 🧠 React Hook Form
+- 🔥 MongoDB
+- 🔐 Better Auth
+- 🗄️ JSON Server (Mock API)
+- 🎯 Lucide React + React Icons
 
 ---
 
-## 🗄️ JSON Server Setup  
+## ✨ Features
 
-### Install
+### 🧱 Tiles Showcase System
+- Beautiful tile grid layout
+- Category-based tile browsing
+- High-quality product display UI
+
+### 🔍 Product Experience
+- Smooth animations for product transitions
+- Interactive hover effects
+- Responsive design for all devices
+
+### 🔐 Authentication
+- User login & registration system
+- Secure authentication using Better Auth
+- MongoDB adapter support
+
+### 📝 Form Handling
+- Contact / inquiry forms
+- Validation using React Hook Form
+
+### ⚡ Performance
+- Optimized Next.js rendering
+- Component-based architecture
+- Fast loading UI with animations
+
+---
+
+## 📂 Project Structure
+
 ```bash
-npm install -g json-server
+src/
+│
+├── app/              # Next.js app router
+├── components/       # Reusable UI components
+├── modules/          # Feature-based modules (tiles, auth, etc.)
+├── lib/              # Utilities & configs (auth, db, etc.)
+├── hooks/            # Custom hooks
+├── services/         # API calls / data handling
+└── styles/           # Global styles
