@@ -78,7 +78,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10 text-center py-4 text-sm text-[#edd0b9]/70">
-        © {new Date().getFullYear()} Tile Gallery. All rights reserved.
+        © {new Date().getFullYear()} Tile Gallery. All rights reserved by TAJ.
       </div>
     </footer>
   );
